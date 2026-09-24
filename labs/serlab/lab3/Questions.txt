@@ -1,0 +1,26 @@
+// SER 120L - Lab 3
+// Hernest Koroli
+
+Questions - Abstraction and Inheritance
+1. Why are the screenshots for Task 5 and Task 7 different?
+-
+The output mainly differs at the last two lines of the text using the eat() and sleep() methods.
+In task 5, there was no eat() and sleep() methods for the Cat class except the Animal class.
+In task 7, even though we have both, my guess is that the Cat object I instantiated will use the eat() and sleep()
+method if they exist in the Cat class, otherwise the methods will be from the Animal class.
+
+
+
+2. Which methods from the Animal class were optional to override in <yourAnimalType>'s class? Why?
+-
+The eat() and sleep() methods can be overriden since it doesn't have the abstraction modifier in the parent class.
+The cat object will use the eat() method in the Animal class if there is no eat() method in the Cat class.
+If both methods exist, then the Cat class method will be used because the object was instantiated by the Cat class.
+Same goes for the sleep() method.
+
+
+3. Conversely, which methods from the Animal class were not optional to override? Why?
+-
+The speak() and action() methods can not be overriden. We declared these methods in the parent class
+and the abstract modifer doesn't allow us to write anything inside of the method whether it is returning something
+or printing something. The abstract methods need the subclass methods so I can use methods like speak() and action().

@@ -1,0 +1,31 @@
+CSC111L - Lab 9
+Hernest Koroli
+
+Comparison Results Questions:
+
+1. Both lists should perform in relatively the same amount of time(the number of digits should be similar or the same) Explain how each add method works. 
+The ArrayList just adds elements to the ArrayList object and then resizes when the capacity is full and a new array needs to be created. 
+For a linked list you're creating elements. If there are two elements or more then Nodes have to exist to refer to another element hence the term linked comes in.
+Actually, there is a head node for the first element so regardless of how many elements you have from 1 element to a 1,000,000 they all need Nodes that refer to
+other elements.
+
+2. Which type of list(array or linked) performed better for inserting to the front of the list? Why? Explain how each insertAtFront method works. 
+A LinkedList performs much better compared to an ArrayList because when you add a new element it doesn't have to modify or shift the elements above
+The element gets added and there are nodes connecting it.
+A--B--D--E
+add(C, 2)
+A--B~~C--D--E
+The B node has referred to C and the reference to D is gone. Linked lists are much faster in that it only needs to modify a couple of nodes
+referring to other elements.
+
+The ArrayList takes a long time similiar to a linear search which is O(n).
+We have to shift all elements to the next position and insert the element we want so it's likely O(n + 1).
+The " + 1" exists because of that extra element we have to accomodate because we're adding it.
+
+3. Which type of list(array or linked) performed better for getting a value from the list? Why? Explain how each get method works. 
+The ArrayList will be much better because the get() method is accessing the value based on the index which is why the recorded time
+was incredibly low. You can just directly access any element with array[i] and don't need any fancy get method().
+The linked list will be much slower because all elements are "chained" together. Let's assume you want the element E.
+You can't go from A to E instead you have to grom A to B, B to C, C to D, then D to E.
+
+

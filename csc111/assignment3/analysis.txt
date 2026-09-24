@@ -1,0 +1,137 @@
+Analysis Info:
+I analyzed all the algorithim of each code to see it's behavior
+The seed is 10,000 if you'd like to replicate these results I will show
+
+Definition
+-->: which returns/returns
+
+Bubble Sort Analysis
+Predictions on swap and comparison values:
+Comparisions: It will be n^2 because bubblesort involves sorting the elements
+that aren't sorted and repeat the process. Looks like elements are rising like bubbles.
+An array of size 10,000 if we do the Big O notation will be...
+O(10,000^2) --> 100,000,000. 99,980,001
+It's also obvious because of the two for loops nested which squares any operation.
+
+Swaps: I will guess the first few iterations of going through the list goes up to
+n (or 10,000) swaps. and then decreases exponentially. Maybe a tenth or quarter of it's swaps 
+each time the algorithm goes fully through the list
+
+Comparisions on 10,000 elements (Correct): 99,980,001 comparisons have been made
+swaps on 10,000 elements (Partial correct): 25,399,649 swaps have been made
+
+I thought it would decrease but 25 million swaps seems to stay consistent and also
+a quarter of the comparisions made. I marked it as partial because I was guessing
+a quarter or tenth of n^2. I seem to had the right idea but I solely relied on intuition
+
+Comparisions on 50,000 elements (correct): Java overflowed and returned -1795067295 comparisions
+which indicates the 50,000^2 surpassed 2,147,483,647. 50,000^2 --> 2,500,000,000.
+I put it as correct because I expected the whatever the sum was for 50,000^2 and not
+
+Swaps on 50,000 elements (Partial correct or correct): 621,231,019
+It's correct if you take my explanation here or count the initial prediction
+Learning from what 10,000^2 did and learning swaps is likely 1/4 of n^2 or 10,000^2
+I calculated 50,000^2 --> 2,500,000,000, then I took 2,500,000,000/4 --> 625,000,000.
+625 million seems pretty good when comparing to 621 million
+
+
+
+SelectionSort analysis:
+Predictions on swaps and comparison values:
+I predict the comarisons and swaps will be O(n^2/4). It looks like insertionsort but reversed.
+The outer loop starts at end for the array index and decreases as all inner loops are finished.
+The inner loop goes to start and increases to find or select the biggest number and sort it to the end.
+It looks for the biggest number and put it at the end
+
+Comparisions on 10,000 elements (incorrect): ~50,000,000
+Swaps on 10,000 elements (incorrect): ~50,000,000
+
+Looks like I had some idea in the actual answer since I predicted O(n^2/4)
+Comparisions on 50,000 elements : ~1,250,000,000
+Swaps on 50,000 elements: ~1,250,000,000
+
+My answer is likely wrong after analyzing the select sort.
+The swap index which is the outer loop will be the index that the biggest number will get moved to
+The i in the inner loop is looking for the biggest number.
+i has to do less work in comparisons and swaps as more and more of the biggest numbers get sorted.
+
+InsertionSort analysis:
+Predictions on swaps and comparision values:
+I predict the comparisons will be n^2 (10,000 --> 100,000,000 and 50,000^2 --> 2,500,000,000)
+I think swaps will be n^2/2 because the algorithim will sort nums on the right side and move them
+or "insert" them back to where the number belongs. I divided it by half because I expect more operations
+to happen when sorting any elements that need to move repeatedly backwards.
+
+Actual values:
+Comparisions on 10,000 (incorrect): ~25,000,000
+Swaps on 10,000 (incorrect): ~25,000,000
+
+The estimates I've reasoned before running the insertion sort test was incorrect.
+I'm confused as to the comparisons being low on my prediction.
+There are two for loops and I'm comparing two values.
+My guess is the inner loop is going backwards to sort any numbers that aren't sorted.
+The first few iterations of the inner loop isn't going through much as sortedEnd has to be
+greater than start. 
+The outer loop is reposnible for moving to the next index of the array.
+The inner loop checks if two values are sorted or not and goes backwards to check all values
+and "inserts" the number
+
+
+New prediction: n^2/4 for both swaps and comparisons:
+
+Comparisions on 50,000: ~625,000,000
+Swaps on 50,000: ~625,000,000
+
+I was correct on both of the new values or still incorrect on my initial prediction
+
+
+Mergesort analysis:
+Predictions on swaps and comparisons:
+I'll predict that swaps will be around O(log n) because mid exists and uses start - end and then divides.
+It looks familiar to binary search and I know the efficieny of this algorithim is O(n*log(n)) since
+you wrote down the growth rate in assignment 3.
+Then comparisons will have to be n since a lot of checking has to be done and swaps will be way less since
+we're merging sorted arrays together.
+
+Comparisions on 10,000 (incorrect): ~37,000 
+Swaps on 10,000 (incorrect): ~26,000
+
+Ok, I'm completely confused on how these numbers are coming up.
+I put in (10,000 * log2(10,000)) --> 132,877 (rounded).
+This doesn't match any of them. log2(10,000) --> 13 (rounded).
+I can multiply the answers on swaps and comparisons by 5 and I could get a similar answer
+although I won't count it and one might grow faster.
+
+Comparisions on 50,000 (incorrect): ~2,200,000
+Swaps on 50,000 (incorrect): ~1,560,000
+
+Yeah I'm putting 50,000 * log2(50,000) --> 780,482 (rounded).
+
+Quicksort analysis:
+Predictions on swaps and comparisons:
+I'm aware quicksort is another algorithm with a growth rate of O(n*log2(n))
+Comparisions will be n^2 since It doesn't look like there is any special conditions
+where i has to meet a certain condition. i equals to start and has to be less than end.
+Swaps will be n*log2(n) since It has to checking certain indicies to sort the array.
+I can't say im fully confident in what it actually does.
+
+Comparisions on 10,000 (incorrect): ~93,500
+Swaps on 10,000 (incorrect): ~93,500
+
+Comparisions on 50,000 (incorrect): ~624,000 - 520,000
+Swaps on 50,000 (incorrect): ~624,000 - 520,000
+I'm giving these ranges since they differ way more compared to the intial 10,000 elements
+
+I'm confused as to why I'm getting these n*log2(n) algorithims wrong.
+Would comparisons represent as one of the n's and then swaps represents the other n?
+Yeah I know it doesn't make sense considering n is supposed to be the size of the input/array
+nor does it make sense in terms of math for a variable to represent two different numbers.
+
+I'm not sure why my answer is wrong. There is a for loop in the partition method
+which goes through the array as normal with some variables for extra info to decide on sorting the array.
+I can't seem to figure out what could be the issue and I'm unfamiliar with how it actually works in swapping and comparing.
+The challenge is really finding out when it compares and when the array swaps since these are efficient.
+I'll leave it as my answer and don't want to google anything that could assist or hint me towards the problem.
+
+I'll ask you why my prediction is wrong the next time I see you professor Kohlberg (at the time of submitting this assignment)
+Hernest Koroli, Class of 2029.

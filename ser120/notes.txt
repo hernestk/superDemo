@@ -1,0 +1,175 @@
+2/2/26
+Abstract class - defines what an object IS - identity
+    -always subclass this as the abstract class defines properities of an object
+Interface defines what an object CAN DO - behavior
+
+implements keyword
+    - allows you to implement an interface allowing you to use methods from that interface
+
+Packages
+    -introduces namespace
+
+Prime directive
+    - managing complexity and dealing with trade offs.
+    Instead of asking "How do I do this?" to "What is the problem we are modeling?"
+
+History
+    - Bill Joy created Java. 
+    - Bjarne Stroundstroup created C++
+
+Modifer
+- public --> any object can access it
+- private --> only accessible by the object instance itself
+- default --> accessible by objects in the same package
+- protected --> accessible by objects in the same package or subclasses
+
+- source control
+Software is constantly changing and developers tend to focus on a component
+of a software. Chaos can happen when a lot of changes happen
+- save always when the software is in a working state.
+
+Brief history of solving multiple people working on a codebase
+- cvs
+- subversion
+- clearcase
+
+Design Pattern
+- A description of objects andf classes to solve a general design problem 
+  in a particular content
+
+### 3/18/26
+Test Driven Development
+    - needed when bugs and or errors pop up and the
+    program needs to be studied by how it behaves
+
+Refactoring
+    - changing the internal code without chaning external behavior
+
+    Reasons to Refactoring
+    - rename variables
+    - refine logic
+    - extract function to separate class
+    - evolve the design
+
+# Exception Swallowing
+- always log excveptions
+- never catch exceptions and do nothing
+
+### 3/30/26
+Funcitonal Decomposition
+    - The act of breaking down a large system or process into its smaller sub components
+    - Not just used for software, consider business, government
+    - The approach is everywhere
+
+Linguistic Analysis
+    - Look for nouns to be the classes
+    - Look for verbs to be the functions
+
+### 4/1/26
+Commands
+
+    - cp: copies the parameter in the terminal
+    -cp -R: allows copying the directory
+    -cp -Rp: allows copying the directory and preserving the data
+    -df: 
+    -cat: concatnates the content of a file
+    -more: shows some of the file then press space (maybe enter) to see more of the file
+    -cowsay: 
+    -find: prints what files are in the directory
+    
+### Source control
+GitHub
+    - git innit
+    - git add
+    - gid commit
+    - git log
+    - git branch
+    - git push
+    - git add remote
+    - git pull
+
+### Actor Model 4/20/26
+    - Carl Hewitt was one of the original thinks for computer science
+    - Made the planner programming language
+
+    - Logic based programing languages
+    - 5th generation programming language project
+    - Japan spent over 10 years on it, ended up a bust
+    - Planner inspired Prolog
+    - Hewitt inspired by Church
+
+# Lambda Calculus
+    - Alonzo Church made the lambda calculus. Also Alan Turing's teacher from princeton
+    - Very Simple
+
+# Functional Proframing
+    - Lambda hets used for functions to make functional programming
+    - Java has it
+
+# What is an Actor
+    - Fundamental unit of computation
+    - has three things
+        - processing
+        - storage
+        - communicate
+
+# One Actor is No Actor
+    - They need to have addresses
+    - Can message other actors
+
+# Axioms
+    - Create more actors
+    - send messages
+    - Can say what it's going to do with the next message it receives
+
+# Functional Programming - No side effects
+    - States don't changes
+    - Actors can change how it responds to future messages\
+
+### Midterm and Final Project 3/22/26
+- Goes over midterm questions
+- Has starter code for the UI for final Chess Project
+
+### Memento Mori 3/27/29
+Prime directive
+    - Managing complexity
+    - wrestling with it is the only way to understand why this is the case
+    - goal of the course has been exposed to you to complexity and chaos and let
+    you learn and understand for yourselvelves how OO techniques and ideas
+    can help
+
+    - Spaghetti makes complexity apparent.
+
+# Memories
+OO 101
+- classes
+- interfaces
+- abstract classes
+- methods
+- member variables
+- compositition vs interface (has a relationship vs is a relationship)
+
+# Remember when
+    - Accidental vs Essential complexity - i.e No Silver Bullet
+    - encapsulation
+    - information hiding
+    - information hiding
+    - S O L I D
+    - Design Itself
+    - Patterns
+
+# Patterns
+    - Singleton
+Focuses on a class has a instance variable that can be used by any class
+    - Abstract factory
+Create a large set of objects
+    - Builder
+encapsulates complexity
+guides the solution
+has a single responsibility
+    - Momento
+captures and externalizes an object's internal state
+
+# Power of connecting your software to people and communicate other software
+It's an incredible skill to have if you can make software that can comunicate 
+with other software.

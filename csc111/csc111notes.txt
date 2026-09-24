@@ -1,0 +1,552 @@
+2/5/26
+## Encapsulation
+
+access modifiers
+- public: accessible by any class
+- private: accessible only to one class
+- abstract:
+- protected: 
+- none: "package private"
+
+Encapsulation: hiding the data
+- allows you to create immutable data types or make some properties
+  immutable by restricting access to them
+- in OOP, classes are responsible for maintaining a valid state,
+  guaranteeing their invariants are true
+
+public API vs private implementation
+
+- API: Application Programming Interface
+- if your code is used by other programmers, you want to establish a
+  public API that rarely/never changes
+- the private implementation (private methods/variables, implementation
+  of public methods, etc) is not necessary for someone to use your public API
+
+Packages:
+
+Week #4: 2/10/26
+Errors:
+
+Throwable
+Error
+Exception - checked
+Runtime Exception - unchecked
+
+-checked
+  - compiler will force you to handle these
+  - often means a type of error you can't prevent and should try to recover from
+  or at least tell the programhow to respond to
+
+-unchecked
+  - compiler will not make you handle these
+  - often means a type of error that yoy can prevent by writing good code or
+  checking a condition before the operation that might throw an exception
+  - you're usually (not always) able to rewrite your code to stop these from
+  happening instead of handling them with try-catch.
+
+try() {
+
+} catch () {
+
+}
+
+Week #5 2/17/26
+
+Recursion
+-A recursion function is a fucntion that calls itself.
+
+why learn/use it?
+  - can be used like a loop
+  - recursive algorithms can be simple and concise
+  - more powerful than plan loops and nested loop
+  - some problems are easier to understand through recursive algorithms even if you changes
+    it to an iterative algorithm
+  - Important in functional programming, math (have ypu seen proof by induction)
+
+why not use recursive?
+  - it is expensive. function call overhead compared to loop overhead
+    - some compilers can optimize recursive functions into loops
+  - loops are equally powerful when combined with a stack
+  
+# 2/19/26
+
+## Recursion
+for(int i = 0; i < count; i++) {
+    doSomething();
+}
+
+void function(start, end) {
+    if(i < end) {
+      doSomething();
+      function(i + 1, end);
+    }
+}
+
+## Factorial
+n! = {n * (n - 1)! if n > 1}
+     {1            if n = 1}
+
+base
+    - condition: n is 1
+    - result: 1
+recursive
+    - work: multiply by n
+    - similar problem: (n - 1)!
+
+# 2/24/26
+Program Memory (RAM)
+
+Hard Drive / SSD (storage) slow
+RAM (memory) faster, requires power
+CPU Cache (cache) fastest
+
+ROM - read only memory
+Stack - stores variables, functions, parameters
+Heap - stores objects and references.
+
+# Calling a function creates a new "stack frame":
+- stores local variables, the state of the function call
+- if we call another function, then we return to this frame when the other call returns
+- this stack frame is freed when this function call returns
+
+# Infinite Recursion
+- You get StackOverflowError when you run out of stack memory
+
+# Fibonacci Sequence
+
+
+3/3/26
+# Algorithm Analysis
+Goals
+- develop your intuiton for analyzing hwo fast an algoritim is.
+- look at algorithms or code and estimate its growth rate.
+- analyzing algorithms will help you better udnerstand code
+
+# Growth Rate 
+- It's usually n (rarely is it m) = input size
+  for example: the length of an array
+  determines how much work needs ot be doSomething
+- basic operation: what operation are we measuring (incrementing a variable, calling a function)
+- growth rate relationship: the relationship between the input size and how much work is needed
+to fulfill an algorithm
+
+The basic operation: print (will print 50 times)
+--
+f(n) {
+  for(int i = 0; i < 50; i++) {
+    print "hello"
+  }
+}
+--
+
+--
+f(n) {
+  for int i = 0 i < n
+    print i
+}
+g(n) = n is linear
+--
+
+--
+f(n) {
+  for int i i < n
+    print i
+    print n
+}
+g(n) = 2n is still linear as we have to basic operations per iteration
+--
+
+--
+f(n) {
+  for i = 0 i < n
+    for j = 0 j < n
+    
+  g(n) = 10n^2
+}
+
+Growth rates fall into four categories
+- constant: c
+- logarithmic: log n
+- linear: n
+- linear logarithmic: n long n
+- quadratic: n^2
+- other polynomials: n^3
+- exponential: c^n, 2^n
+- factorial: n!
+
+Why do we care about one term in g(n) when mutiple terms are present yet we care about the biggest?
+n^2 > n
+
+best case, worst case, average case
+                            ^
+                            |
+                            |
+                        usually this
+
+Upper bounds and lower bounds
+     ^
+     |
+     |
+usually this
+
+      0                   Θ           omega
+    big O
+  Upper bounds
+  usually this
+
+Sorting:
+Bubble
+Selection
+Inserting
+Quick Sort
+Merge Sort
+Rodix
+Rob sort? Monkey sort?
+
+# 3/5/26
+### Linear Search & Binary Search
+
+Linear Search
+-------------
+Base case: if value is found (success) or value isn't present (fail)
+Base case (fail):
+  start = end --> -1
+
+Base case (succeed):
+  target = array[start] --> start
+
+Recursive Case:
+  search(start + 1, end)
+
+Binary Search
+-------------
+Base case: if value is found (success) or value isn't present (fail)
+Base case (fail):
+  start = end --> -1
+
+Base case (succeed):
+  target = array[mid] --> mid
+
+Recursive Case: lower half
+  if target < array[mid]:
+    search(start, mid)
+
+Recursive Case: higher half
+  if target > array[mid]:
+    search(mid+1, end)
+
+### Algorithms 3/17/26
+
+O(n^2)
+  - bubble sort
+  - selection sort
+  - insertion sort
+  - Slow at arrays with lots of elements, fast at arrays with little amount of elements
+  - fast on small arrays due to the simple design of the algorithm
+O(n log n)
+  - mergesort (kinda similar to binary search)
+  - quicksort
+  - Fast at arrays with lots of elements, slow at arrays with little amounts of elements
+  - slow on small arrays because of the overhead of validating values being sorted correctly
+
+### Bitwise Operators 2/19/26
+7 and 8
+7 & 8
+
+  - &: and
+  - |: or
+  - ^: xor
+  - ~: negate
+
+  0000 0111
+& 0000 1000
+-----------
+  0000 0000
+
+  0000 0111
+| 0000 1000
+-----------
+  0000 1111
+
+  1011 1011
+^ 1011 1011
+-----------
+  0000 0000
+
+  1011 1011
+^ 0000 0000
+-----------
+  1011 1011
+
+# OR
+  - T or T --> T
+  - T or F --> T
+  - F or T --> T
+  - F or F --> F
+
+# XOR (exclusive or)
+  - returns false when two true statements exist
+  - T or T --> F
+  - T or F --> T
+  - F or T --> T
+  - F or F --> F
+
+#FF0000
+
+FF   00   00
+R    G    B
+
+# Swapping
+  - You need a temporary variable to store a variable's value
+  a = 5
+  b = 6
+  t = 5
+
+  a = b --> 6
+  b = t --> 5
+
+  - Without the temporary variable, remember how variables are assigned
+  a = b --> 6
+  b = a --> 6
+
+public void swap(int[] array, i, j) {
+    int t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+}
+
+public boolean isSorted(int[] array) {
+    for(int i = 1; i < array.length; i++) {
+        if(array[i - 1] > array[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+### 3/24/26
+- List 
+    - fancy array, dynamic size, can shift elements around
+- Stack
+  - Last In, First Out
+  - {1, 2, 3}, to remove is to start at the end (3) and go 3, 2, 1
+- Queue
+  - First In, First Out
+- Tree
+  - root element
+  - child nodes
+- Hash Table
+  - "Associative Array"
+  - Key --> Value
+  - efficient for storing and looking up values
+  - values can be strings, non-sequential ints, etc.
+
+Algorithims       Data Structures
+-----------       ---------------
+Problem           ADT (Abstract data type)
+Algorithm           - what operations does the data structure support
+Implementation      - does not specify how the data is sorted or implemented
+
+Implementation
+---------------
+  - Data Structures that includes code for ADT's operations
+  - has a specific strategy for manging data
+
+Array-Based Implementation
+--------------------------
+  - stores data in an array
+
+Reference-Based Implementation
+  - stores data in a "chain" of objects
+    that hold references for each other
+
+Generics
+  - A list of objects that can hold different primitives
+    without the type checker complaining
+
+### 3/26/26
+List
+- has a cursor
+- insert(): adds an element at a specific index based on the cursor.
+- get(i): gets an element from the index
+- removeAt(): removes and returns the element at a specific index
+- size(): returns the size of the list
+- add(): add an element to the end of the list
+- indexOf(): return the index of a specific element or -1 if it is not found
+- clear(): remove everything from the list
+- isEmpty(): checks if the list is empty
+
+List<E> (Generic)
+- get(i) --> E
+- insert(i, e) --> void
+- removeAt(i) --> E
+- indexOf(e) --> int
+- size() --> int
+
+Constants
+- public: doesn't matter, read only
+- static: only copy needed
+- final: the data inside a variable can't be modified or reassigned
+  - Good to use UPPER_SNAKE_CASE for final variables
+
+### 4/2/26
+Nodes
+  - has an element and then a pointer referencing another node
+  - Nodes are made for linked lists in mind.
+    each element has a node that act like chains to connect to other elements
+Stacks
+- easiest to understand and implement by a longshot
+
+i = 5
+The minus minus after i still returns 5 until after you print i itself
+i-- = 5
+
+The one before i already subtracts i and returns the result which is 4
+--i = 4
+
+i++ = 5
+++i = 6
+
+### Queue 4/7/26
+
+- enqueue: add element to the back of the queue
+- dequeue: remove an element from the front of the queue
+- peek: get element at the front of the queue without returning
+- size: returns size of the queue
+- isEmpty: returns a boolean whether the queue is empty
+- clear: gets rid of everything in the queue
+
+## Postfix calculator
+
+- iterate over input (arrays of string, operands, operators)
+  - if an element is a number: push it onto the Stack
+  - if an element is an operator:
+    - pop two numbers of the stack
+    - evaluate those two numbers based on the operator
+    - push result back onto the stack
+- top element of the stack is the result of the expression
+  - if we encounter an empty stack
+Infix: 2 + 2 (what we usually see)
+Postfix: 2 2 +: easier for computers to parse
+
+### 4/9/26
+Queue
+  - inefficient when removing an element.
+  - It's O(n) because once an element is removed
+    other elements have to get shifted down
+  
+Ciruclar Array
+  - When at the last index you move to the 0 index when you move forward
+
+  F = (F + 1) % length
+  B = (B + 1) % length
+
+### 4/14/26
+Final Project
+Default: Markov Generator
+You can sugguest a different topic for next class and see if everyone likes it
+
+# Binary Trees
+Root --> O
+
+A binary tree has a root node
+  - root nodes have child nodes
+  - those child nodes have child nodes as well
+
+  - leaf node = no child nodes
+  - internal nodes = 1+ child nodes
+
+# File Trees
+  - directories contain children
+  - children nodes with no child nodes are files
+  - good way to represent the file system for your computers
+
+- AST (abstract syntax tree)
+- tree sort
+  - add each element to BST (binary search tree)
+  - ___ tree to get elements in order
+
+Some binary trees can be considered a
+  - binary search tree 
+
+### Binary Seach Traversals 4/16/26
+There are 3 types of traversals:
+preorder
+in order
+post order
+
+pre - data, left, right
+left - left, data, right
+post - left, right, data
+
+BST (Binary search tree) ADT
+- insert
+- contains
+- the three types of traverals
+
+### Hash Table 3/21/26
+
+Problem: we want to look up objects by Strings rather than indexes.
+We want an associate array, use Strings as keys.
+
+We also want this to be reasonably fast
+
+Normally (arrays)
+String[] s = {A, B, C}
+s[0] = A
+s[1] = B
+s[2] = C
+
+Hash Map, Hash Table, Map, Dictionary
+all kinda mean the same thing (verify this)
+
+
+# Hashing
+f(str) =
+int s = 0;
+for(int i = 0l i < str.lenl i++) {
+  s += str.charAt(i);
+}
+return s % len
+
+### Hash Table ADT 4/23/26
+  - get(key): value
+  - set(key, value)
+
+# Constructor (for hash tables)
+- each slot in the hash table is a linked list
+(key)(value)--> (key)(value)--> ...null
+
+Node(K, V) {
+  K key;
+  V value;
+  Node<K, V> next;
+}
+
+# Funcitonal Interfaces
+Problem: we want to pass functions
+as arguments to other functions/objects.
+
+Functional Interface: an interface with a single
+abstract method/function
+
+interface: a construct like a class
+used in inheritance, polymorphism, only contains
+abstract methods
+
+@FunctionalInterface // you may use it, but not required
+interface ArithmeticOperation {
+  int operate(int a, int b);
+}
+
+static int combine(int[] array, ArithmeticOperation op) {
+  // combine elements with op
+}
+
+abstract: method defined with no implementation.
+A class related to the abstract has to implement it
+
+### Regular Expressions 4/28/26
+- * = 0 or more
+- + = 1 or more
+- \\s = whitespace/line break

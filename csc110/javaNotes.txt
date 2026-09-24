@@ -1,0 +1,1097 @@
+## Java
+
+- object-oriented program (oop)
+- portable
+    - interpreted: code is run by an interpreter
+        - slower
+        - more portable
+    - compiled: program is convered to machine code by compiler
+        - faster, can be highly optimized
+        - need to compile multiple versions
+    - compiled to bytecode
+        - can optimize code during compilation
+        - Java bytecode run by JVM (Java Virtual Machine)
+- running Java code
+    - compile then run:
+        - javac compiles .java code to .class files containing bytecode
+        - java runs a .class file on the JVM
+    - (we'll do this one) xjava can also run .java files
+        - compiles code in memory (into RAM instead of to a file)
+        - runs the compiled code
+    - jshell is a java interpreter
+    - useful for seeing the result of small pieces of Java code
+    - REPL: Read, execute, print, loop
+    - not ideal for reading user input
+    
+## Text files
+
+- text vs binary
+    - text = just text
+    - binary = maybe text, but some amount of non-text data
+- text files include:
+    - .txt files
+    - .md (markdown)
+    - .java files, any other source code
+- binary files include:
+    - .doc files and other documents
+    - .pdf files
+    - images
+    - audio
+    - video
+    - .class files (or other compuled code)
+    - executables
+- files extensions don't change the file's format
+
+## Java Programs
+
+- Most run with 'java --enable-preview ProgramName.java' on Java 24
+- In java 25, we ignore the command above and run like a normal program
+
+Function: a chunk of of code that we can run by calling the name of the Function
+
+void main() {...}
+
+Special: main is the entry point of our program and will be called by the java command
+
+Pieces of main:
+- void (doesn't return any information we can use)
+- main (function's name or identifier)
+- () (parameters for a function)
+- {...} (curly braces to wrap the body of the function, determiens start and end)
+
+Print statement:
+
+IO.println("Hello World");
+
+- IO. (simplification) namespace
+    - nmespaces divide programs into different parameters
+    - same name can be reused in different namespaces without conflict
+    - good analogy: namespaces are liek folders
+    - different languages have different mechanisms for creating namespaces
+    - a dot joins namespaces with functions and other objects inside of therm
+
+- println (another function, this time we're calling the function)
+- () (contains arguments or parameters or information we will provide to the function)
+- "Hello World" (a string ro text we're printing)
+- ; (required to end a line of code)
+
+## Variables
+-  Can assign a piece of data like "Hello World" to a variable
+- using the variable will return the data inside that variable
+
+var identifier = inital value; (initial value can be string, int, double, or boolean)
+
+Creating a variable
+
+- var: indicates we're making a new variable
+- identifer: the variable's name
+- = tells Java to assign the value to the variable
+- initial value: whatever data we want to assign to the variable
+- ; variable creation ends with a semicolon
+
+Reassigning a variable
+
+identifier = new value
+
+- changes the value of the variable that was already created
+
+## I/O functions
+
+Output:
+
+-IO.println
+-IO.print
+
+Input:
+
+-IO.readln(prompt)
+
+Input must be stored in a variable.
+
+var input = IO.readln(...)
+
+or
+
+input = IO.readln(...)
+
+## Week 3 Notes
+## Types of variables/data
+
+- For now, our types are: String, int, double, boolean, char, float
+- Others are byte, short, long
+
+Declare a variable with an explicit type:
+
+int x = 5;
+double y = 3.23;
+String z = "Helo WOrld";
+
+- Java is "statically typed"
+    var x = 5; // infers typed based on initilization
+    - all variables have a type
+    - variables can only store data of their type
+    - opposite is dynamic typing
+        - javascript, Python, Lua, Lisp all use dynamic typing
+        - Java, C#, C++, Rust all use static typing
+
+## Syntax
+
+- statements vs expression
+    - statements are a complete instruction, does something normally ends in semicolon.
+    - expression: a value, variable, or more complicated that has to be evaluated like infers
+
+Expression examples:
+
+- 5
+- 3.14
+- "Hello Wolrd"
+- a variable: x, y, executables
+- more complex,, requires computation: 5 + 3, x * y
+
+- jshell is great for checking expressions
+- where we've already used expressions:
+    - initial value for a variable
+    - new value when reassigning a variable
+    - whenever we call IO.print, IO.println, IO.readln
+- statements we've already used
+    - creating and reassigning variables
+    - calling one of the IO functions
+
+- literals
+    - literal values are written directly into our code
+        -5, 3.14, "Hello World" are all literals
+        - literals are expressions and can be used as part of a larger expression
+        - literals have a type, just liek other expressions
+        - normally refer to them by type: "an integer literal" or a "string literal"
+- operators
+    - symbols used to operate on expressions
+    - most are binary operators (requires two operands)
+        - example: + operator can add two numbers
+    - several unary operators (only involve one operand)
+        - example: - operator can negate one number (-5)
+- identifers: names assifned to variables, functions, etc.
+    - can contain letters and numbers
+    - cannot start wiith a number
+    - cannot be a keyword
+    - no spaces in the identifer
+
+variable and function cal syntax:
+
+int x = 5;
+IO.println(x)
+
+- variable creaiton:
+    - type identifer = initial value;
+- function call:
+    - identifer(arguments);
+    - namespace.identifer(arguments);
+    - IO is the namespace, println is the identifer;
+
+## Variables
+
+- declaration, initilization, and assignment
+    - declare: create the variable
+    - initialize: assign a value to a created variable
+    - assign: set the value stored in a variable
+
+// declare and initialize
+int x = 5;
+
+// declare only
+int y;
+
+// initialize
+y = 5;
+
+// can't use an uninitialized variable in an expression;
+
+// reassigning initialized variables
+x = 10;
+y = x * 2;
+
+### Assignment operator
+
+= is an operator
+    - a = b means the value of b gets assigned into above
+
+this is not math class:
+
+x = 5
+x = 6
+
+in algebra, this is just a contradiction
+
+in programming:
+
+x = 5;
+x = 6;
+
+this just means set x to 5, then change it to 6
+
+## Conversions
+
+- implicit, cast, parse functions
+- cast from double to int:
+
+(int) double_expression
+
+- parse functions
+    - thse can fail if the string doesn't represent a number ("abc" for example)
+    - failure causes a NumberFormatException, which will crash the program
+Integer.parseInt("5")
+Double.parseDouble("3.14")
+
+## Numbers and Strings
+
+- % operator takes the remainder called modulo
+- dividing two integrers truncates the results to an int
+- concatentation
+    - + operator concatenates when either operand is a string
+    - follows normal order of operations (* and / happen before concatenation)
+    - if other operand is not a string, it will be converted to a string
+- method = function attached to an object
+    - for now, Strings are the only type with methods
+    - techinically all functions we've seen are methods
+    - any String expression can call a String method
+- escpae sequences start with a backslash: \ and let you include special characters in Strings
+    - \\ -> backslash
+    -\" -> double quote
+    - \n -> line break
+    - \t -> indents/tab
+
+## Errors
+
+- three categories: compile, runtime, and logic
+
+## Week 4 Notes
+
+## Booleans
+
+Comparison operators for numbers: >, >=, <, <=, ==, !=
+Comparison operators for booleans: ==, !=
+- String use the .equals(String) method
+
+Boolean logic: && (AND), || (OR), ! (NOT)
+- AND: results in true only when both operands are true
+- OR: results in true when one is true at least
+-NOT: urnary perator, results in the opposite of the operand/boolean
+
+Truth Tabble
+
+A | B | A && B | A || B | !A | !B |
+-----------------------------------
+T | T | T      | T      | F  | F
+T | F | F      | T      | F  | T
+F | T | F      | T      | T  | F
+F | F | F      | F      | T  | T
+
+How not to use comaprisoons:
+
+0 <= x <= 50
+
+0 <= x is either true or false, let's say true
+
+We have to evalute true <= 50
+
+How to fix this:
+
+0 <= x && x <= 50
+
+## Assignment vs Equality operators
+
+- Assignment operator: =
+    - Does not result in true/false, don't use for comparisons
+    - This is for assigning a value to a variable
+Equality operator: ==
+    - Compares two values and evalues to true or false
+    - Use this in comparisons
+    - Do not use this to reassign variables
+
+## Scope
+Variables inside another block aren't recognized by main
+main is basically global, but not really.
+    - main = entry point of code execution
+
+## IF statements
+
+Structure:
+...
+// if
+if (condition)
+{
+    execute code
+}
+
+// if-else
+if(condition)
+{
+    execute code
+} else {
+    execute a different code
+}
+...
+
+- if and else are Java keywords
+- the condition is a boolean expression and must be wrapped in parenthesis
+- the code will be executed if the condition is method
+- the else code will execute if the initial condition fails
+- else is optional; you can have an if without the else
+
+## While statements (while loops)
+
+...
+while (comdition)
+{
+    execute code if conditon is true
+}
+
+- while is a keyword
+- the condiiton is a boolean expression wrapped in parentheiss, kust like if
+- the code is one or more statements inside the while loop
+- if the conditon evaluates to true then the body will execute and this process will repeat
+- every time the condiiton is true, we re-evaluate after the code and potentially repeat the same process
+
+To end a running program stuck in a loop, ctrl + C
+
+## Counting loop
+
+If you know how many times a loop must repeat or calculate it while the program is running
+...
+// init: create a counter variable and initalize it to 0
+int i = 0;
+// condiiton: check whether counter variable is less than the desired number of repitions
+while (i < repitions)
+{
+    // body: whatever the loop does
+
+    // update: increment the counter variable
+    i = i + 1 or i +- 1
+}
+
+### Week 5 Notes
+
+## Function
+
+function: a vlock of code we can call by its name
+
+terms
+
+- function call: run the code inside of a function
+- function definition/implementation: where we define the function's return/parameter types and state
+what happens when it's called. Returns could be String, int, double, boolean, classes.
+- implementation: the code block containing the code.
+
+- parameters: (formal parameters): define variables for the function's input, what information does other code have
+to provide when calling this function.
+- arguments (actual parameters): values provided when calling the function; each argument is assigned to a 
+parameter when the function body runs
+
+- return: provides a value to the code that called the function
+-name/identifer: how we refer to the function, just liek a variable's identifer
+
+## Using functions
+
+To define a function:
+...
+type identifier(parameters)
+{
+    implementation
+}
+...
+// just the function call
+identifer(parameters)
+
+// a non-void function's result should be assigned to a variable or used in an expression
+
+variable = identifer(arguments);
+
+Returning from a function
+- 'return' is akeyword that stops the function execution and gives back a value
+- if a function's return type is 'void', then we have to print (no returns allowed)
+- 'return' is a keyword that stops the function execution
+- if a function's return type isn't 'void', then it must be guarenteed to return a valuer of that type.
+- You can overload functions like constructors in Java! 
+
+## Variable Scope
+
+- scope = part of the program a variable is valid
+- normally, scope is the block in which we declare the variable
+- function parameters are scoped to the function's body/implementation
+- seperate functions have completely different scopes, so you can
+  reuse names between functions with no conflicts
+- a parameter names never have to match argument names: you can supply a variable named x for a parameter
+named age as long as the types are compatible
+
+## Arrays
+
+Two ways of initialization for primitive Java arrays
+int[] numList = new int[10];
+int[] numList = new int[] {1, 2, 3, 4, 5};
+
+- don't print arrays directly
+- benefits of array is that we can batch process them with a counting loop.
+
+LOOK AT ARRAYFUNCTIONS IN LAB 6
+## Number bases
+
+Numbers vs Representation
+Example: 27
+Tally IIII/ IIII/ IIII/ IIII/ IIII/
+Roman Numerals: XXVII
+Positional Notation: 2 7, 11011 (binary)
+
+Bases:
+    decimal: base-10
+    binary: base-2
+    hexadecimal: base-16
+
+Digits:
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+    0, 1
+    0, 1,...9, A, B, C, D, E, F
+
+Decimal:
+    Decimal Expansion
+    1,590 > 1 * 10^3 + 5 * 10^2 + 9 * 10^1 + 0 * 10^0
+            1000       500        90
+
+Addition:
+    1 1
+    1,590
+  + 3,475
+---------
+    5065
+
+Binary:
+Binary Expansion:
+11011 = 1 * 2^4 + 1 * 2^3 + 0*2^2 + 1*2^1 + 1 * 2^0
+        16        8         0       2       1
+    Adds up to 27
+
+101110 = 46
+
+   11011
+ + 101110
+ --------
+   1001001
+
+Hexadecimal:
+    Dec | Hex | Bin 
+    0   | 0   | 0000
+    1   | 1   | 0001
+    2   | 2   | 0010
+    3   | 3   | 0011
+    4   | 4   | 0100
+    5   | 5   | 0101
+    6   | 6   | 0110
+    7   | 7   | 0111
+    8   | 8   | 1000
+    9   | 9   | 1001
+
+Hexadecimal Expansion:
+    3A7 = 3 * 16^2 + 10*16^1 + 7 * 16^0
+          3 * 256    10 * 16   7 * 1
+          768        160       7
+            = 935
+
+Base Conversions:
+    How do we convert from base X to base Y? 
+    Division: divide by base until we reach 0,
+              remainders are the difits in that base
+
+### Week 7 Notes
+
+## Conversions
+
+- base expansion: calculations in target base
+- division: calculatiions in starting base
+- subtraction: calculatiions in starting base
+bin to/frpm hex: no math involved
+
+division example: 1590 / 16 = 99 r6
+                  1590 % 16 = 6 r3
+                  99 / 16 = 6 r6
+                  6 / 16 = 0
+                  6 % 16 = 6
+1590 (base-10) = 636 (base-16)
+
+1002 / 16 = 62 r10
+  62 / 16 = 3 r14
+  3 / 16 = 0 r3
+
+1002 (base-10) = 3EA (base-16)
+
+## Subtraction
+
+1. Find the highest power of your target base that's is less than or equal to the starting number.
+2. Subtract that from the starting number
+3. Write a 1 in the column for the power of 2 from step 1
+4. Repeat steps 1 to 3 until you reach 0.
+5. Fill other coloumns with zeroes.
+
+Example: 1590 to base-2
+Power of 2: 1 2 4 8 16 32 64 128 256 512, 1024, 2048
+1590 - 1024 = 566
+566 - 512 = 54
+54 - 32 = 22
+22 - 16 = 6
+6 - 4 = 2
+2 - 2 = 0
+
+1590 (base-10) = 11000110110 (base-2)
+
+## Bin to/from hex
+
+Every hex digits corresponds to exactly four binary digits. You can pad a binary number
+with leading zeroes if it doesn't have a multiple of four digits.
+
+Example 11000110110 (base-2) to hex (base-16)
+
+Pad with leading zeroes so we have twelve digits and make groups of four:
+
+0110 0011 0110
+
+Step 2: Convert each group of four to a hex digits
+636 (base-16)
+
+Example: 3FCD381007 to binary
+
+Step 1: Comvert hex each digit into a four digit binary (pad with leading zeros if fewer than four digits).
+
+3       F       C       D       3       8       1       0       0       7
+3       15      12      13      3       8       1       0       0       7
+0011   1111     1100    1101    0011    1000    0001    0000    0000    0111
+
+Step 2: Combine these numbers into your binary number and dro the leading zeroes from the result.
+
+11111111001101111000100000000111 (smth like this)
+
+## Fixed-Size Numbers
+
+- Computers work with fixed-size chunks of memory
+- two numbers of the same type like int always use the same amount of memory;
+    - limitations
+        - with limited size we can only represent a small range of numbers
+        - problems happen when the range is exceeded.
+
+Example: let's do math in decimal with exactly 8 digits in every number:
+
+Problem: What is 0000 1590 + 0003 0400?
+- 0000 1590 = 1590
+- 0003 0400 = 30400
+============
+  0000 1590
++ 0003 0400
+============
+  0003 1990 = 31,990
+
+Problem: What is 4897 3432 + 6156 3765?
+
+Example in binary with 8-bit numbers, whay is 0110 1010 + 1101 0111
+
+0110 1010 = 108
+1101 0111 = 215
+
+## Two's complement
+
+Nine's complement: two base-10 numbers that, when added, gives a 9 in ever digit.
+
+Example (8-digit fixed size): what is the nine's complement of 4897 3432
+
+  4897 3432
++ 5102 6567
+===========
+9999 9999    5102 6567 is the nine's complement of 4897 3432
+
+Ten's complement: two base-10 numbers that when added, give a ten (0) in every digit
+
+Easy way to find this: add 1 to the nine's completment!
+
+  4897 3433
++ 5102 6567
+===========
+  0000 0000
+
+Why ten and nine? Because we're talking about base-10. In any other base N, we care about N and N-1.
+
+One's complement: two base-2 numbers numbers that when added, give a 1 in every digit.
+
+0110 1010
+1001 0101 +
+===========
+1111 1111
+
+Two's complement: two base-2 numbers that when added, give a zero (two, kinda) in every digit
+
+Easy way to find this: add 1 to the one's complement!
+
+0110 1010
+1001 0110 +
+===========
+0000 0000
+
+a = some 8-digit fixed-size positive decimal integer
+
+a_comp = the ten's complement of A
+
+a + a_comp = 0000 0000
+
+b = some other 8-digit fixed size positive decimal integer.
+
+b = a_comp = b - a.
+
+...
+a = 0000 0005
+a_comp = 9999 9995
+b = 0000 0012
+
+0000 0012
+9999 9995 +
+============
+0000 0007
+...
+
+## Integer types
+- signed = can be positive/negative (encoded with two's complement)
+- unsigned = can't be negative
+- bit = binary digit
+- byte = 8 bits
+- kilo, mega, giga, terra, etc. prefixes denote thousands, millions, etc.
+- kibi, mebi, gibi, tebi
+- integer sizes: 1, 2, 4, 8 bytes or 8, 16 , 32, 64 bits
+    - byte: 8-bit signed integer
+    - short: 16-bit signed integer
+    - int: 32-bit signed integer
+    - long: 64-bit signed integer
+    - char: 16-bit unsigned integer used to represent individual text characters
+- overflow: if integer's exceed the max/min size for their type, they they wrap around the other end
+
+...
+think about base-10 fixed size:
+
+0000 0000 is zero
+0000 0000 is the ten's complement of zero
+
+5000 0000 is -50 million
+5000 0000 is its own ten's complement
+
+0000 0000 to 4999 9999 are zero and positive numbers.
+5000 0000 to 9999 9999 are negative numbers
+
+this system can encode any integer from -50 million to 49,999,999
+the zero is taken from the positive numbers 
+
+base-2 fixed size:
+
+0000 0000 is zero and its own two's complement
+
+1000 0000 is -128 and its own two's complement
+
+0000 0000 to 0111 1111 are zero and positive numbers
+1000 0000 to 1111 1111 are negative numbers
+
+this can represent any integer from -128 to 127
+
+Look at integer.exposed
+...
+
+## Floating-Point Numbers
+
+We want to represent real numbers, but:
+
+- we have to work with a fixed size
+- we'd like something that's all-purpose: can work with very small numbers (between 1 and 0)
+and large numbers (like 10^50)
+
+Let's say we have 8 decimal digits to work with and want to representreal numbers. How would we do this?
+XXXX.YYYY the X digits are positive are 10^3, 10^2, 10^1, 10^0 and the Y digits are 10^-1, 10^-2, 10^-3, 10^-4.
+This is fixed point, and it doesn't have the qualities we're looking for.
+
+XXYYYYYY: the X digits are an exponenet and the Y digits are the significant digits.
+This is the floating point, and it does have the qualities we were looking for.
+...
+10 500000 = 0.500000 * 10^10 = 5 billion
+...
+
+### Week 8 Notes
+
+Margin of error common name is epsilon or eps.
+
+double a = Double.parseDouble(Readln("Add two numbers to 0.3"));
+double b = Double.parseDouble(Readln());
+
+double eps = 0.0000000001;
+
+double difference
+
+## Random Numbers
+
+- random numbers often aren't really random, they're pseudo random.
+- start with a seed value and manipulate it to create a new value everytime
+you generate numbers
+-starting with the same seed always gives the same "random sequence
+(int)(Math.random() * 6) + 1;
+
+The function "Math.random()" generates a double from 0.0 (inclusive) to 1.0 (exclusive).
+To generate random int values, you scale, truncate, and offset this number:
+
+- Scale by multiplying by the number of possible outcomes you want. If we want ten
+  different outcomes, then we write "(int)Math.random() * 10"
+- Truncate by casting to an int: "(int)(Math.random() * 10)", remember parenthesis for
+  the correct order of operations
+- Offset by adding a number. If we want 1 to 10 instead of 0 to 9, then we can add 1:
+  "(int)(Math.random() * 10) + 1"
+
+## Boolean logic
+
+- OR vs XOR: OR is inclusive or, XOR is exclusive or
+- a OR b is true except when both a and b are false
+- a XOR b is only true when a == false and b == true or a == true and b == false
+- XOR operator is ^, OR operator is ||
+
+false && false || true
+- &&'s are evaluated first and then ||'s are second
+
+- short-circuiting: && and || won't evaluate their second operand when it's not necessary
+
+if I asked you, what is FALSE && X? You can answer without knowing the value of X
+if I asked you, what is TRUE || X? You can answer without knowing the value of X
+
+## characters
+- char is an unsigned integer 16 bits
+- implicity converts to int when you do arithmetic with it
+- cast back to char with "(char)"
+- letters and digits are encoded sequentially, allowing for fun tricks
+
+## Value Types
+
+- value type: data type that stores value directly
+- reference type: data type that stores value on "heap" and direcetly stores a 
+  reference to the heap data.
+- primitives types: very basic types, simple and baked directly into the language.
+    - byte, short, int, long, boolean, float, double, void, char
+    - Java's primitive types are all value types
+
+### Primitive Type Literals
+integer literals:
+- any integer value (no decimal point) is by default an 'int' literal
+- you can write a 'long' literal by apending an L or l to an integer literal
+- we can write integer literals in other bases by including a specific prefix:
+  - 0b: binary
+  - 0: octal (base-8)
+  - 0x: hexadecimal
+  - put underscores for spacing without changing the meaning of the number
+
+- any floating-point number (has a decimal point) is 'double' by default
+- appending F or f to the ned makes any integer or double literal a 'float'
+- can write floating-point literals in scientific notation by ending with E followed
+  by an exponenet
+
+char literals"
+
+- surrounded by single quotes, not double quotes: 'c' is a char and "c" is a 'String'
+- can use escape seqences in 'char' literals: '\n' '\t', '\'
+- can use unicode escape sequences as well: '\u000a' (an emoji)
+
+## Reference Types
+
+- ref types don't store data directly in variables
+
+'''java
+// a stores a reference to the storage containing "H' 'e' 'l' 'l' 'o'
+// the string itself is stored on the heap
+String a = "Hello";
+
+// b stores a reference to the array containing 1, 2, and 3
+// the array itself is soted on the heap
+int[] b = new int[]{1, 2, 3};
+'''
+
+- String and array are reference types
+- Anything more complex than a primitive type is usually a ref type
+- Why?
+  - Strings and arrays can be very large; much cheaper to copy a reference (64 bits) than
+  a 10 KB string
+  - Java can manage memory for you; reference types are automatically allocated on heap
+    and freed when no longer needed
+  - Garbage collector manages anything that lives on the heap
+
+## Objects
+
+Java allows you to define your own types with a 'class'. 'String' is defined by a class,
+as are many other types.
+
+- a class defines a type of object
+  - there is a 'String' class that defines how strings work and what data is stored in a string
+- an object is an individual instance of a class
+  - each string in your program is an instance of the string class; separate objects that adhere
+    to the definition in the string class
+- objects are just data that can have functions (methods) attached to them
+    - strings have methods such as 'toUpperCase', 'substring', and 'charAt'
+- objects can be complex:
+  - objects can contain a bunch of primitive values
+  - objects can contain references to other objects
+  - objects are always stored on the heap, with variables only keeping a reference to them
+
+### Equality and references
+
+The '==' and '!=' operators compare the contents of a variable:
+
+- Ref types store a reference in the variable
+- Multiple objects can have identical data
+- These operators will only compare the reference, not the data the reference points to
+- Usually a bad idea to use '==' and '!=' with any ref type
+
+The '.equals' method exists for every object, but only some objects impleement a versions
+that compares their data. By default, it just uses the '==' operator
+
+- 'String' defines its own equals method that properly comnpares the contents to another string
+- Arrays do not define an eqauls method, they use the default
+  - if you want to compare arrays or any type that doesn't define its own equals method, then
+    you need to find a method that does this for you or write your own comparison code
+
+## Mutabiltity and references
+
+- mutable: changable; its data can be modified
+- inmutable: unchangeable; its data cannot be modified
+- Strings are immutable, arrays are mutable
+
+### Wekk 9 Notes
+
+## Switch statements
+
+useful for no boolean expressions.
+
+switch (expression)
+{
+    case value:
+        <statements>
+        break;
+    ...
+    default: // like an else which is guarenteed.
+    <statements>
+    break;
+}
+
+- switch, case, break, default are all keywords
+    - switch marks the start of a switch statement
+    - case followed by a value marks an individual case
+    - break ends the swtich statement
+    - default is a case that matches any value
+- equivalent to the following else-if chain:
+
+switch(expression)
+{
+    case a: 
+        IO.println("Case a!");
+        break;
+    case b: IO.println("Case a!");
+        case c: IO.println("Case b!");
+        break;
+    default: 
+        IO.println("Case default!");
+        break;
+}
+
+- fallthrough: cases will continue when you don't put in "break;" to end them
+  and this won't trigger a compile error
+ - sometimes useful for combining severalcases or for making certain optimizations
+ but can easily lead to errors if you're not careful
+ - not necessary if a case returns or otherwise stops execution of the switch
+- break can be used in loops to sop, also continue
+- break ends the current loop
+- continue skips the rest of the current iteration, but the loop will continue if the condition
+  is true.
+
+int i = 0;
+while(i < 10)
+{
+    IO.println(i);
+    i++;
+}
+
+int i = 0;
+while(true)
+{
+    IO.println(i);
+    i++;
+    if(i >= 10)
+    {
+        break;
+    }
+}
+
+- can add labels to looks and target a specific label with break/continue, but this is
+a very niche use case.
+
+## For loop
+
+- more concise loop syntax fro the counting pattern: anything where you can figure out
+the number of iterations ahead of time, anything using an array
+
+for(unit; condition; update)
+{
+    statements;
+}
+
+-- commonly used operators:
+    - +=, -=, *=, /=: "a += 5" is equivalent to "a = a + 5"
+    - ++, --: ++ increases by one and -- decreases by one.
+    - it's possible to use "a++", "++a", "a--", or "--a"
+- enhanced for loop: specifically for iterating over arrays or other collections
+
+for(String s : arrau)
+{
+    // do something wirh s
+}
+
+- enhanced for loop is more limited:
+    - no index variable, so don't use it if you need to know the index;
+    - can't modifty the array or collection you're using
+
+## Arrays and Strings
+
+- ".split()": string method that splits the string into an array of strings.
+  the parameter uses String and excludes anything you specific from spaces to characters or special symbols.
+- "String.format" function that takes a format string and some other arguments, then returns
+  a string contating those arguments in the format given by the format string
+  - alternative to concatenation, more powerful
+  - formatting specifers: %s(any), $d (decimal integer), %f (floating-point), and many Others
+  - can add extra info in the specifier
+  - %4d pads an integer with zeroes instead of spaces, at least 6 characters
+  - %.3f rounds a floating-point number to 3 decimal places
+- copy vs mutate
+- copy lets you keep original and modify the copied array, but takes more memory
+- mutate lets you change your current array, less flexibility, but less memory usage
+
+# 2D Arrays
+
+- 2D arrays are just a list of arrays: int[][] instead of int[]
+- typically you want all subarrays to be the same length (rectangular arrray)
+  but your subarrays can have different lengths
+- can iterate over with nested for loops
+  - be careful about using row/col vs x/y coordinates
+
+### Week 10 Notes
+
+## Program vs Function I/o
+
+- input/output: information entering and leaving a system (a program, fucntion, etc).
+- At a program level:
+    - IO.readln reads user input and can also print output
+    - IO.print and IO.println print output to the terminal
+- At the function level: just lookingat information travelling between functions, not info
+    entering and leaving the program.
+    - A functions parameters define inputs required to call the function
+    - A function's return value sends output to the caller (the code that called the function)
+    - A fucntion's return type tells other code what type of output the fucntion produces
+    - Wriitng funcitons that only use their parameters and return value for input lets them
+      more easily communicate with other parts of your program
+
+// version 1: function uses program I/o
+void square()
+{
+    double x = Double.parseDouble(IO.readln("Enter a number to square: "));
+    double xSquared = x * x;
+    IO.println("The square of " + x + " is " + xSquared + ".")
+}
+// version 2: function uses function-level I/O
+double square(double x)
+{
+    return x * x;
+}
+
+- Side-effect
+    - anything that affects program state outside of the function
+    - not inherently bad, but should be avoided unless you specifically want that side-effect
+- Functional Programming: programming paradigm
+    - avoids mutable state: all variables are constants, never reassigned
+    - a;; functions are "pure", no side-effects
+    - lanugaes that focus on FP: Haskell, OCaml, F#, Scala (combines OOP and FP)
+
+## Misc Topics
+
+- null references: any ref type can equal null (no value)
+    - can check for null with == and !=
+    - trying to call a methond on a ariable containing null will trigger a 'NullPointerException'
+    - usually you want to write ypur code to avoid producing null, not to aggressively check
+      for null before doing anything
+- do-while loop: like a while loop, but condiiton is checked at the end
+    - there is actually a semicolon after the while, which is unusual for sleciton/iteration
+      constructs 
+    - because the condiiton is checked at the end, loops execute One or more times; in
+      other words, it's guarenteed to enter the loop and perform one iteration
+    - usually not needed, but useful if you have a task that should be repeated one or more times
+
+while(<condition>)
+{
+    statements
+}
+
+do 
+{
+    statements
+} while (condition);
+
+## switch syntax: Jaca 12-113 update, JEP 361
+    - can use switch expressions
+    - arrow
+
+## OOP
+- Objects have data and methods
+- Object shide their data to maintain integrity.
+- Have other features like inheritance and polymorphism.
+
+Programming paradigms and software architecture
+
+## classes
+- Java defines objects with classes.
+
+### Week 11 Notes
+
+## inheritance- classes in Java "extend" exactly one other class, called their "superclass" 
+   or "parent class"
+- you can specify a super class with the 'extends' keyword, but if you don't 
+  then your class automatically exyends a class called 'Object'
+- the class that extends something is call the "subclass" or "child class"
+
+
+the Object class
+
+- is the superclass of every other class, either directlu or indirectly
+- contains a .equals(Object) method and a .toString method, which
+  every other class inherits
+- classes can override inherited methods, which means they redefine how it works
+- we can override .equals() to make our classes easy to compare
+- we can override
+
+instanceOf - basically checks if objects is a certain type.
+
+public - can be accessed from any code, no restrictions
+class - declares a class; all java code must be in a class
+static - one copy of the class.
+void - doesn't return anything
+main - function/method name
+String[] args: A string array parameters
+
+## static
+- instance ___: something local to an instance of a class
+- static ___: only one copy of this for the entire class,
+each instance does NOT get its own copy
+
+- instance variable: each instance of the class gets its own.
+- static variable: the class get its own, all instances.
+
+- instance method: used when an object is tied to a function. ex. object.method(parameters).
+- static methods: basically a standalone function. method(parameters) or class.method(parameters) if outside of the class
+
+## System, Scanner
+- System has two PrintStream variables and one InputStream variable:
+
+### Git
+
+git init -initalizes empty repository
+git status - shows state of the file.
+git add (file name) - use it to add for status and act on the file
+git add . - specifies all files
+git commit -m "" - commits file(s) and leaves a message inside the quotes.

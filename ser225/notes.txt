@@ -1,0 +1,53 @@
+9/1/26
+Waterfall SDLC (Software Development Life Cycle)
+Benefits
+    - You do one phase and can move on until you complete the phase you're on.
+    - Simple since it is linear
+Cons
+    - An issue can halt the production of the software being developed
+    - Pretty rigid as it is linear
+    - Customer is not involved and cannot change requirements once process has started
+
+Agile SDLC
+Benefits
+    - Current industry standard
+    - Iterative
+    - Smaller repeating work cycles
+    - Continously deliver value to customer
+    - Customer can change requirements if necessary
+        - pivot
+        - adapt
+        - fast failure
+    - Customers can see incremental progress rather
+    - Planning, working, and testing in smaller increments is more manageable
+    - Risk is mitigated as time goes on
+Cons
+    - Customer not being involved can hurt the process
+    - A weak link in an agile team can hurt process immensly
+    - Not particularly "speedy"
+    - Expectations are not solidified from onset of project (timeline, scope, cost)
+
+    
+
+Concept --> Inception --> Iteration --> Release --> Maintenance --> Retirement
+
+Methodology is...
+    - a way to systematically solve a problem
+    - methods chosen to get the desired outcome
+Framework is...
+    - detailed steps to solve a problem
+
+Agile Framework Examples
+    - Scrum
+        - lightweight
+        - Iterative
+        - incremental
+        - developing, delivering, and sustaining complex products
+        - teams self-organize
+        - daily communications
+        - customer is strategically involved with development
+    - Kanbam
+    - Extreme Programming (XP)
+
+User Stores
+    - Smallest unit of work on a software project
